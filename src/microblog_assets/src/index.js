@@ -18,15 +18,9 @@ async function post() {
     return;
   }
   try {
-    let res = await microblog.post(msg, post_password.value);
-    if (res) {
-      window.alert("post message success.");
-      post_message.value = "";
-      return;
-    } else {
-      window.alert("post message faield.");
-      return;
-    }
+    await microblog.post(msg, post_password.value);
+    post_message.value = "";
+    return 
   } catch (e) {
     window.alert(e);
   }
